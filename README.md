@@ -1,4 +1,4 @@
-readme_content = """# Project 8: Load Balancer Solution With Apache (L7 Application Load Balancing)
+Project 8: Load Balancer Solution With Apache (L7 Application Load Balancing)
 
 ## 📌 Project Overview
 In this project, we enhanced the **DevOps Tooling Website Solution** deployed in Project 7 by implementing an **Apache Layer 7 (Application) Load Balancer** on an Ubuntu EC2 instance (`Project-8-apache-lb`). 
