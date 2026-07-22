@@ -21,39 +21,8 @@ The updated multi-tier architecture consists of:
    * **MySQL DB Server** (Ubuntu 20.04) on TCP Port 3306.
    * **NFS Server** (RHEL8) exporting shared storage (`/mnt/apps`) mounted to `/var/www` across web servers.
   
-      <pre style="font-family: monospace; line-height: 1.2;">
-       ┌────────────────────────┐
-       │   [ Client Browser ]   │
-       └───────────┬────────────┘
-                   │
-            HTTP (TCP Port 80)
-                   │
-                   ▼
-  ┌─────────────────────────────────┐
-  │   Apache Layer 7 Load Balancer  │
-  │     ( Project-8-apache-lb )     │
-  └────────────────┬────────────────┘
-                   │
-         ┌─────────┴─────────┐
-  HTTP   │                   │   HTTP
- (Port 80)                   (Port 80)
-         │                   │
-         ▼                   ▼
-┌──────────────────┐  ┌──────────────────┐
-│   Web Server 1   │  │   Web Server 2   │
-│ (RHEL8 / Apache) │  │ (RHEL8 / Apache) │
-└────────┬─────────┘  └────────┬─────────┘
-         │                     │
-         │   NFS (2049 / 111)  │
-         ├─────────────────────┤
-         │                     │
-         ▼                     ▼
-┌──────────────────┐  ┌──────────────────┐
-│  MySQL DB Server │  │    NFS Server    │
-│  (Ubuntu 20.04)  │  │     (RHEL8)      │
-│  TCP Port 3306   │  │ /var/www -&gt; NFS  │
-└──────────────────┘  └──────────────────┘
-</pre>
+<img width="384" height="513" alt="image" src="https://github.com/user-attachments/assets/71f9aaef-85d2-419f-a2c5-39cdae64161f" />
+
 __________________________________________
 
 ⚙️ Step-by-Step Implementation Guide
